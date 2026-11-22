@@ -4,14 +4,14 @@
 
 ## GitHub 数据快照
 
-仓库：[zzhliu05/lean-to-paper](https://github.com/zzhliu05/lean-to-paper)。代码、统计摘要、循环候选报告和入口预览放在 Git 中；完整图数据放在 [Release `graph-2026-11-22-jsonl`](https://github.com/zzhliu05/lean-to-paper/releases/tag/graph-2026-11-22-jsonl)。
+仓库：[zzhliu05/lean-to-paper.github.io](https://github.com/zzhliu05/lean-to-paper.github.io)。代码、统计摘要、循环候选报告和入口预览放在 Git 中；完整图数据放在 [Release `graph-2026-11-22-jsonl`](https://github.com/zzhliu05/lean-to-paper.github.io/releases/tag/graph-2026-11-22-jsonl)。
 
 当前快照覆盖 **1,060,824 条声明、6,013,037 条候选引用、889,764 条模块导入记录**，候选结构层级为 **0–148**。它是词法候选图，并未通过 Lean 内核验证；Mathlib 完整依赖尚未接入。
 
 在新克隆的仓库中下载和恢复数据：
 
 ```powershell
-gh release download graph-2026-11-22-jsonl --repo zzhliu05/lean-to-paper --dir release-assets
+gh release download graph-2026-11-22-jsonl --repo zzhliu05/lean-to-paper.github.io --dir release-assets
 python tools/restore_graph_release.py --assets release-assets --root .
 ```
 
@@ -92,7 +92,7 @@ python -m unittest discover -s tests -v
 
 ## 全量声明依赖文档
 
-在线浏览：[完整依赖文档](https://zzhliu05.github.io/lean-to-paper/)。
+在线浏览：[完整依赖文档](https://zzhliu05.github.io/lean-to-paper.github.io/)。
 
 全量浏览器按 L0–L148 列出所有命题，支持当前层级内搜索、分页，以及切换到包含定义和实例的完整声明目录。点击条目可查看声明头、全部直接前置依赖、全部直接使用者，以及带行号的原始源码。双向关系列表可搜索和分页；小图仅展示当前页前八个邻居，明确标出总数。不会按教材水平删除目录中的节点。
 
