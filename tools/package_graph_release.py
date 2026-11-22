@@ -11,8 +11,7 @@ import json
 from pathlib import Path
 import sqlite3
 
-FILES=['candidate-nodes.jsonl','candidate-edges.jsonl','candidate-layers.jsonl',
-       'module-imports.jsonl','dependencies.sqlite']
+FILES=['candidate-nodes.jsonl','candidate-edges.jsonl','candidate-layers.jsonl','module-imports.jsonl']
 PART_LIMIT=1024**3
 
 def package_one(root,out,name):
@@ -27,20 +26,21 @@ def package_one(root,out,name):
     with dest.open('rb') as stream:
         for chunk in iter(lambda:stream.read(4*1024**2),b''):compressed_hash.update(chunk)
     compressed_size=dest.stat().st_size
+    limit=min(PART_LIMIT,8*1024**2) if name=='candidate-edges.jsonl' else PART_LIMIT
     parts=[]
-    if compressed_size>PART_LIMIT:
+    if compressed_size>limit:
         with dest.open('rb') as stream:
             number=0
             while True:
-                first=stream.read(min(4*1024**2,PART_LIMIT))
+                first=stream.read(min(4*1024**2,limit))
                 if not first:break
                 number+=1;part=out/(dest.name+f'.part{number:03d}');digest=hashlib.sha256();written=0
                 with part.open('wb') as target:
                     chunk=first
                     while chunk:
                         target.write(chunk);digest.update(chunk);written+=len(chunk)
-                        if written>=PART_LIMIT:break
-                        chunk=stream.read(min(4*1024**2,PART_LIMIT-written))
+                        if written>=limit:break
+                        chunk=stream.read(min(4*1024**2,limit-written))
                 parts.append(dict(name=part.name,size=written,sha256=digest.hexdigest()))
         dest.unlink() # Only this tool's redundant temporary gzip; original data stays intact.
     else:parts=[dict(name=dest.name,size=compressed_size,sha256=compressed_hash.hexdigest())]
@@ -52,6 +52,7 @@ def package_one(root,out,name):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--root',default='.');parser.add_argument('--out',default='release-assets')
+    parser.add_argument('--include-database',action='store_true',help='Include the optional full SQLite diagnostic snapshot')
     args=parser.parse_args();root=Path(args.root).resolve();out=Path(args.out).resolve();out.mkdir(parents=True,exist_ok=True)
     wal=root/'artifacts/dependencies.sqlite-wal'
     if wal.exists() and wal.stat().st_size:raise RuntimeError('SQLite WAL is not empty; checkpoint after stopping graph writers before packaging')
@@ -59,9 +60,9 @@ def main():
         totals={t:db.execute(f'SELECT count(*) FROM {t}').fetchone()[0] for t in ('declarations','expanded','edges','imports')}
     if totals['declarations']!=totals['expanded']:raise RuntimeError('Graph expansion is incomplete')
     with ThreadPoolExecutor(max_workers=2) as pool:
-        assets=list(pool.map(lambda name:package_one(root,out,name),FILES))
+        assets=list(pool.map(lambda name:package_one(root,out,name),FILES+(['dependencies.sqlite'] if args.include_database else [])))
     manifest=dict(schema_version=1,snapshot='2026-11-22',graph_semantics='source_lexical_candidates_not_kernel_dependencies',
-                  totals=totals,mathlib_dependencies_complete=False,assets=assets)
+                  totals=totals,mathlib_dependencies_complete=False,sqlite_snapshot_included=args.include_database,assets=assets)
     text=json.dumps(manifest,ensure_ascii=False,indent=2)+'\n'
     (out/'graph-data-manifest.json').write_text(text,encoding='utf-8')
     (root/'artifacts/graph-data-manifest.json').write_text(text,encoding='utf-8')

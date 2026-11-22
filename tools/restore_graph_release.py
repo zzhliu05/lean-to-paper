@@ -25,9 +25,12 @@ class PartsReader(io.RawIOBase):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--assets',default='release-assets');parser.add_argument('--root',default='.')
-    parser.add_argument('--only',action='append',help='Original filename, e.g. dependencies.sqlite; may be repeated')
+    parser.add_argument('--only',action='append',help='Original filename listed by this Release; may be repeated')
     args=parser.parse_args();assets=Path(args.assets).resolve();root=Path(args.root).resolve()
     manifest=json.loads((assets/'graph-data-manifest.json').read_text(encoding='utf-8'))
+    available={Path(item['source']).name for item in manifest['assets']}
+    missing=set(args.only or [])-available
+    if missing:raise ValueError('Files not included in this Release: '+', '.join(sorted(missing)))
     for item in manifest['assets']:
         name=Path(item['source']).name
         if args.only and name not in args.only:continue

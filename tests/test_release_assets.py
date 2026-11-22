@@ -21,6 +21,8 @@ class ReleaseAssetsTests(unittest.TestCase):
             self.assertGreater(len(item['parts']),1)
             self.assertTrue(all(p['size']<=256 for p in item['parts']))
             (assets/'graph-data-manifest.json').write_text(json.dumps({'assets':[item]}),encoding='utf-8')
+            with patch('sys.argv',['restore','--assets',str(assets),'--root',str(root/'missing'),'--only','dependencies.sqlite']),self.assertRaisesRegex(ValueError,'not included'):
+                restore.main()
             target=root/'restored'
             argv=['restore','--assets',str(assets),'--root',str(target)]
             with patch('sys.argv',argv),contextlib.redirect_stdout(io.StringIO()):restore.main()

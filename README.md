@@ -4,19 +4,18 @@
 
 ## GitHub 数据快照
 
-仓库：[zzhliu05/lean-to-paper](https://github.com/zzhliu05/lean-to-paper)。代码、统计摘要、循环候选报告和入口预览放在 Git 中；完整图数据放在 [Release `graph-2026-11-22`](https://github.com/zzhliu05/lean-to-paper/releases/tag/graph-2026-11-22)。
+仓库：[zzhliu05/lean-to-paper](https://github.com/zzhliu05/lean-to-paper)。代码、统计摘要、循环候选报告和入口预览放在 Git 中；完整图数据放在 [Release `graph-2026-11-22-jsonl`](https://github.com/zzhliu05/lean-to-paper/releases/tag/graph-2026-11-22-jsonl)。
 
 当前快照覆盖 **1,060,824 条声明、6,013,037 条候选引用、889,764 条模块导入记录**，候选结构层级为 **0–148**。它是词法候选图，并未通过 Lean 内核验证；Mathlib 完整依赖尚未接入。
 
 在新克隆的仓库中下载和恢复数据：
 
 ```powershell
-gh release download graph-2026-11-22 --repo zzhliu05/lean-to-paper --dir release-assets
+gh release download graph-2026-11-22-jsonl --repo zzhliu05/lean-to-paper --dir release-assets
 python tools/restore_graph_release.py --assets release-assets --root .
-python run.py serve --db artifacts/dependencies.sqlite --port 0
 ```
 
-数据包括节点、引用边、分层、模块导入的 JSONL，以及可直接查询的 SQLite 快照。压缩包可能分片；恢复工具会按清单顺序读取分片，验证压缩和解压后的 SHA-256，并拒绝覆盖已有数据。文件清单位于 `artifacts/graph-data-manifest.json`，Release 另附 `SHA256SUMS`。只需数据库时，可为恢复命令添加 `--only dependencies.sqlite`。
+本次 Release 包含完整节点、引用边、分层和模块导入的 JSONL。压缩边表按 8 MiB 分片；恢复工具会按清单顺序读取分片，验证压缩和解压后的 SHA-256，并拒绝覆盖已有数据。文件清单位于 `artifacts/graph-data-manifest.json`，Release 另附 `SHA256SUMS`。下载后可直接在浏览器中打开 `artifacts/main-preview.html` 查看入口预览。完整 SQLite 诊断快照仍保留在本地；如需另外打包，可运行 `python tools/package_graph_release.py --include-database`。
 
 原始 Lean 源文件未包含在仓库和本次 Release 中。原始输入来自 `https://alpo.ge/lean.tar.gz.part01` 至 `part14`；复算图时需自行准备 `../lean-extracted/lean`。本地未完成的自然语言审核材料也不随图快照上传。
 

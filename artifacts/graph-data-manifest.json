@@ -34,9 +34,89 @@
       "compressed_sha256": "bcef6ec577375cdd25a7a3d243f31b029b8cb2e5590fc373a719d56d33e8b585",
       "parts": [
         {
-          "name": "candidate-edges.jsonl.gz",
-          "size": 136425082,
-          "sha256": "bcef6ec577375cdd25a7a3d243f31b029b8cb2e5590fc373a719d56d33e8b585"
+          "name": "candidate-edges.jsonl.gz.part001",
+          "size": 8388608,
+          "sha256": "25e9aeeff5296ccb836b560c8194502846385bdcac368301cdb23c6a16397f42"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part002",
+          "size": 8388608,
+          "sha256": "a829a2c13d3eae752f2575677e7ea9995d166c9ad029a75dfea3cd1e28f4d99d"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part003",
+          "size": 8388608,
+          "sha256": "b517014f39dc653522a87d6f983ec2a4bb3e4f7450bf383468f6dffaba18bf38"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part004",
+          "size": 8388608,
+          "sha256": "27646fcc6391f6eb82dbf23c7a005dff9a7ccc60224a0a25fc0c25ee00354641"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part005",
+          "size": 8388608,
+          "sha256": "9836c5adf3c196f1cdd85195d9785402ee882903a6f1d314212b0859882eda61"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part006",
+          "size": 8388608,
+          "sha256": "d930662f283d54b3b34cd4ebbb907750325117d83f94d2ae09114c89bede09b3"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part007",
+          "size": 8388608,
+          "sha256": "e4a63624688dc7ba68a1609bc57ff22f5e62f358a7b8f1f4bbdae9b49d7c1d17"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part008",
+          "size": 8388608,
+          "sha256": "d8e8e3e74519fdf9b34f42a5e0a0aac4eabc1dc5aa44250caec5d21b5d555bcd"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part009",
+          "size": 8388608,
+          "sha256": "be928561da26058e9890e5ec85ece70ed4ed46b0a2a20b9912c74f13873af5fc"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part010",
+          "size": 8388608,
+          "sha256": "5491116b19e739b0b5abf23013772df5f402fd1914a05164a1fdfd4ffe5ec2ca"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part011",
+          "size": 8388608,
+          "sha256": "b2acdcf87f41a80a375328b234ae02517f12e50f6d7095c0800a5811555e200b"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part012",
+          "size": 8388608,
+          "sha256": "0dbf42db41da6d76cc801fe4a95518c35edfd9b3efb6daa2b43c896fea9b58da"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part013",
+          "size": 8388608,
+          "sha256": "874c013ebbe94b020520130c720700c35fd98be99fb4eafc95afa629af0e9b23"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part014",
+          "size": 8388608,
+          "sha256": "ecf2b4f53b3582589d13738ce07da5f6ddf53cca3164bb883ff235f593479931"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part015",
+          "size": 8388608,
+          "sha256": "01e45ea9570c7fdab23a09ff1d7f12d0a1163f953f14414984e053de171d9b94"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part016",
+          "size": 8388608,
+          "sha256": "3d980bbc0c7c5e8459892de324c5dda46200f9226904cd476d41a095d6c9ca08"
+        },
+        {
+          "name": "candidate-edges.jsonl.gz.part017",
+          "size": 2207354,
+          "sha256": "00fe219e3b48cc902aab452ad6c55a85e8196edd78941962c74b5d7fd0f9f54f"
         }
       ]
     },
@@ -69,26 +149,7 @@
           "sha256": "447510a8f2564aa5e93977432076591386702bbe2b8f262e49fe6f3b60b58c17"
         }
       ]
-    },
-    {
-      "source": "artifacts/dependencies.sqlite",
-      "uncompressed_size": 5426290688,
-      "uncompressed_sha256": "a4208b5cf2e2ad559ef555a448cce5c5cd89c817e66cd2f2f6e58b1f7307d494",
-      "compression": "gzip",
-      "compressed_size": 1103505340,
-      "compressed_sha256": "5f12291aa6b92cb992cce1e12e3abd5da054c2abbbc72352b393a96712638c76",
-      "parts": [
-        {
-          "name": "dependencies.sqlite.gz.part001",
-          "size": 1073741824,
-          "sha256": "2415291b11dbb7becfd36035e0b58ff7332d1a098f8e7159b16f08d082bd3c54"
-        },
-        {
-          "name": "dependencies.sqlite.gz.part002",
-          "size": 29763516,
-          "sha256": "ee24c4a3354398cd7135d820bd8bdc9c4a1c7353d69ffb805a1fa71bb3cb2a0f"
-        }
-      ]
     }
-  ]
+  ],
+  "sqlite_snapshot_included": false
 }
