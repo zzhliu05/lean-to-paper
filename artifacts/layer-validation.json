@@ -1,0 +1,13 @@
+{
+  "nodes": 1060824,
+  "edges_checked": 6013037,
+  "all_declarations_covered": true,
+  "no_duplicate_ids": true,
+  "no_missing_edge_endpoints": true,
+  "longest_path_recurrence_valid": true,
+  "mathlib_levels_remain_unknown": true,
+  "confirmed_example_self_edges_removed": true,
+  "level_0": 131520,
+  "level_1": 133912,
+  "maximum_level": 148
+}

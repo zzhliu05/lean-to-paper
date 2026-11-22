@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "snapshot": "2026-11-22",
+  "graph_semantics": "source_lexical_candidates_not_kernel_dependencies",
+  "totals": {
+    "declarations": 1060824,
+    "expanded": 1060824,
+    "edges": 6013037,
+    "imports": 889764
+  },
+  "mathlib_dependencies_complete": false,
+  "assets": [
+    {
+      "source": "artifacts/candidate-nodes.jsonl",
+      "uncompressed_size": 694341745,
+      "uncompressed_sha256": "6899942a4254d83c08a5ddaa54b3dff051d8c798f765981ae8a619b8176900ff",
+      "compression": "gzip",
+      "compressed_size": 88039066,
+      "compressed_sha256": "365e6e4568d92357beea32ba64385898a28330687116cfab8fb8e74e70596d71",
+      "parts": [
+        {
+          "name": "candidate-nodes.jsonl.gz",
+          "size": 88039066,
+          "sha256": "365e6e4568d92357beea32ba64385898a28330687116cfab8fb8e74e70596d71"
+        }
+      ]
+    },
+    {
+      "source": "artifacts/candidate-edges.jsonl",
+      "uncompressed_size": 2262839034,
+      "uncompressed_sha256": "181f94a23d504506c8f95e9b30a62fec24f56a727ae53cbc5e73bae94e8a560b",
+      "compression": "gzip",
+      "compressed_size": 136425082,
+      "compressed_sha256": "bcef6ec577375cdd25a7a3d243f31b029b8cb2e5590fc373a719d56d33e8b585",
+      "parts": [
+        {
+          "name": "candidate-edges.jsonl.gz",
+          "size": 136425082,
+          "sha256": "bcef6ec577375cdd25a7a3d243f31b029b8cb2e5590fc373a719d56d33e8b585"
+        }
+      ]
+    },
+    {
+      "source": "artifacts/candidate-layers.jsonl",
+      "uncompressed_size": 587665454,
+      "uncompressed_sha256": "c28721837068dabf102de6ae43e2436d52d5f9fc13ff849ef52ea6c211279b02",
+      "compression": "gzip",
+      "compressed_size": 30563112,
+      "compressed_sha256": "4eff5a8a4c852febc0a8ab0589022896569501540ef05504e9fc4f1eb73ae6c6",
+      "parts": [
+        {
+          "name": "candidate-layers.jsonl.gz",
+          "size": 30563112,
+          "sha256": "4eff5a8a4c852febc0a8ab0589022896569501540ef05504e9fc4f1eb73ae6c6"
+        }
+      ]
+    },
+    {
+      "source": "artifacts/module-imports.jsonl",
+      "uncompressed_size": 196063245,
+      "uncompressed_sha256": "2007a5ac0d64965babee920d61fad88641587c42ddb4a58bc0fe6efc6bef164f",
+      "compression": "gzip",
+      "compressed_size": 12038002,
+      "compressed_sha256": "447510a8f2564aa5e93977432076591386702bbe2b8f262e49fe6f3b60b58c17",
+      "parts": [
+        {
+          "name": "module-imports.jsonl.gz",
+          "size": 12038002,
+          "sha256": "447510a8f2564aa5e93977432076591386702bbe2b8f262e49fe6f3b60b58c17"
+        }
+      ]
+    },
+    {
+      "source": "artifacts/dependencies.sqlite",
+      "uncompressed_size": 5426290688,
+      "uncompressed_sha256": "a4208b5cf2e2ad559ef555a448cce5c5cd89c817e66cd2f2f6e58b1f7307d494",
+      "compression": "gzip",
+      "compressed_size": 1103505340,
+      "compressed_sha256": "5f12291aa6b92cb992cce1e12e3abd5da054c2abbbc72352b393a96712638c76",
+      "parts": [
+        {
+          "name": "dependencies.sqlite.gz.part001",
+          "size": 1073741824,
+          "sha256": "2415291b11dbb7becfd36035e0b58ff7332d1a098f8e7159b16f08d082bd3c54"
+        },
+        {
+          "name": "dependencies.sqlite.gz.part002",
+          "size": 29763516,
+          "sha256": "ee24c4a3354398cd7135d820bd8bdc9c4a1c7353d69ffb805a1fa71bb3cb2a0f"
+        }
+      ]
+    }
+  ]
+}

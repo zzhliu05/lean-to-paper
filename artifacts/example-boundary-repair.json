@@ -1,0 +1,6 @@
+{
+  "files_checked": 2253,
+  "declarations_repaired": 2136,
+  "expanded_declarations_invalidated": 937,
+  "note": "Anonymous example commands terminate the preceding declaration; affected references must be re-expanded."
+}

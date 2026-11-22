@@ -1,0 +1,670 @@
+{
+  "semantics": "source lexical candidate references; not verified proof dependencies",
+  "direction": "declaration -> referenced declaration",
+  "view_depth": 3,
+  "view_is_full_candidate_closure": false,
+  "frontier": [
+    121388,
+    121391,
+    501371,
+    501373,
+    501421,
+    525029
+  ],
+  "nodes": [
+    {
+      "id": 1,
+      "name": "riemannHypothesis",
+      "kind": "theorem",
+      "line": 4,
+      "header": "theorem riemannHypothesis : RiemannHypothesis",
+      "path": "src/Main.lean",
+      "module": "Main",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": true
+    },
+    {
+      "id": 2,
+      "name": "riemannZeta_eq_zero_re",
+      "kind": "theorem",
+      "line": 6,
+      "header": "theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine",
+      "path": "src/Main.lean",
+      "module": "Main",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": true
+    },
+    {
+      "id": 3,
+      "name": "LFunction_ne_zero_of_half_lt_re",
+      "kind": "theorem",
+      "line": 8,
+      "header": "theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf",
+      "path": "src/Main.lean",
+      "module": "Main",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": true
+    },
+    {
+      "id": 4,
+      "name": "LFunction_eq_zero_re",
+      "kind": "theorem",
+      "line": 10,
+      "header": "theorem LFunction_eq_zero_re : DirichletLZerosOnLine",
+      "path": "src/Main.lean",
+      "module": "Main",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": true
+    },
+    {
+      "id": 5,
+      "name": "LFunction_eq_zero_re_of_isPrimitive",
+      "kind": "theorem",
+      "line": 12,
+      "header": "theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine",
+      "path": "src/Main.lean",
+      "module": "Main",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": true
+    },
+    {
+      "id": 6,
+      "name": "RiemannZetaZerosOnLine",
+      "kind": "def",
+      "line": 3,
+      "header": "def RiemannZetaZerosOnLine : Prop",
+      "path": "src/Statements.lean",
+      "module": "Statements",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 7,
+      "name": "DirichletLNonvanishingRightOfHalf",
+      "kind": "def",
+      "line": 6,
+      "header": "def DirichletLNonvanishingRightOfHalf : Prop",
+      "path": "src/Statements.lean",
+      "module": "Statements",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 8,
+      "name": "DirichletLZerosOnLine",
+      "kind": "def",
+      "line": 10,
+      "header": "def DirichletLZerosOnLine : Prop",
+      "path": "src/Statements.lean",
+      "module": "Statements",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 9,
+      "name": "PrimitiveDirichletLZerosOnLine",
+      "kind": "def",
+      "line": 14,
+      "header": "def PrimitiveDirichletLZerosOnLine : Prop",
+      "path": "src/Statements.lean",
+      "module": "Statements",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 81,
+      "name": "allChi",
+      "kind": "theorem",
+      "line": 7,
+      "header": "theorem allChi : UpperTheory.EveryCharacter",
+      "path": "src/Supplements/Kernels/MainTheorems.lean",
+      "module": "Supplements.Kernels.MainTheorems",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 82,
+      "name": "rhOfAll",
+      "kind": "theorem",
+      "line": 9,
+      "header": "theorem rhOfAll : RiemannHypothesis",
+      "path": "src/Supplements/Kernels/MainTheorems.lean",
+      "module": "Supplements.Kernels.MainTheorems",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 83,
+      "name": "critAll",
+      "kind": "theorem",
+      "line": 11,
+      "header": "theorem critAll (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (s : ℂ)\n    (h0 : 0 < s.re) (h1 : s.re < 1) (hz : LFunction χ s = 0) : s.re = 1 / 2",
+      "path": "src/Supplements/Kernels/MainTheorems.lean",
+      "module": "Supplements.Kernels.MainTheorems",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 84,
+      "name": "claimAll",
+      "kind": "theorem",
+      "line": 15,
+      "header": "theorem claimAll : Claim.HalfPlane ∧ Claim.Strip ∧ Claim.Zeta",
+      "path": "src/Supplements/Kernels/MainTheorems.lean",
+      "module": "Supplements.Kernels.MainTheorems",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 121388,
+      "name": "Formalism.VW.gammaFactor_ne_zero",
+      "kind": "theorem",
+      "line": 6,
+      "header": "theorem Formalism.VW.gammaFactor_ne_zero {N : ℕ} (χ : DirichletCharacter ℂ N) {s : ℂ} (hs : 0 < s.re) : gammaFactor χ s ≠ 0",
+      "path": "src/Formalism/GammaFactorNonvanishing/CritLine.lean",
+      "module": "Formalism.GammaFactorNonvanishing.CritLine",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 121389,
+      "name": "Formalism.VW.critLine",
+      "kind": "theorem",
+      "line": 11,
+      "header": "theorem Formalism.VW.critLine (h : UpperTheory.EveryCharacter) (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (hχ : χ.IsPrimitive) (s : ℂ)\n    (h0 : 0 < s.re) (h1 : s.re < 1) (hz : LFunction χ s = 0) : s.re = 1 / 2",
+      "path": "src/Formalism/GammaFactorNonvanishing/CritLine.lean",
+      "module": "Formalism.GammaFactorNonvanishing.CritLine",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 121390,
+      "name": "Formalism.VW.rh_of_every",
+      "kind": "theorem",
+      "line": 29,
+      "header": "theorem Formalism.VW.rh_of_every (h : UpperTheory.EveryCharacter) : RiemannHypothesis",
+      "path": "src/Formalism/GammaFactorNonvanishing/CritLine.lean",
+      "module": "Formalism.GammaFactorNonvanishing.CritLine",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 121391,
+      "name": "Formalism.VW.rh_of_right",
+      "kind": "theorem",
+      "line": 5,
+      "header": "theorem Formalism.VW.rh_of_right (hz : ∀ s : ℂ, 1 / 2 < s.re → s ≠ 1 → riemannZeta s ≠ 0) : RiemannHypothesis",
+      "path": "src/Formalism/GammaFactorNonvanishing/RhOfRight.lean",
+      "module": "Formalism.GammaFactorNonvanishing.RhOfRight",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501371,
+      "name": "Claim.prim_zero",
+      "kind": "theorem",
+      "line": 23,
+      "header": "theorem prim_zero {N : ℕ} [NeZero N] (χ : DirichletCharacter ℂ N) [NeZero χ.conductor] {s : ℂ}\n    (hs0 : 0 < s.re) (hs1 : s.re < 1) (h : DirichletCharacter.LFunction χ s = 0) :\n    DirichletCharacter.LFunction χ.primitiveCharacter s = 0",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501373,
+      "name": "Claim.prim_reflect",
+      "kind": "theorem",
+      "line": 42,
+      "header": "theorem prim_reflect {M : ℕ} [NeZero M] (ψ : DirichletCharacter ℂ M) (hψ : ψ.IsPrimitive) {s : ℂ}\n    (hs0 : 0 < s.re) (hs1 : s.re < 1) (h : DirichletCharacter.LFunction ψ s = 0) :\n    DirichletCharacter.LFunction ψ⁻¹ (1 - s) = 0",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501374,
+      "name": "Claim.strip",
+      "kind": "theorem",
+      "line": 59,
+      "header": "theorem strip (h : HalfPlane) : Strip",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501375,
+      "name": "Claim.zeta",
+      "kind": "theorem",
+      "line": 75,
+      "header": "theorem zeta (h : HalfPlane) : Zeta",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/ClaimStrip.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.ClaimStrip",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501388,
+      "name": "UpperTheory.EveryCharacter",
+      "kind": "def",
+      "line": 13,
+      "header": "def UpperTheory.EveryCharacter : Prop",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/EveryCharacter.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.EveryCharacter",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501402,
+      "name": "Claim.HalfPlane",
+      "kind": "def",
+      "line": 3,
+      "header": "def Claim.HalfPlane : Prop",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/HalfPlane.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.HalfPlane",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501403,
+      "name": "Claim.Strip",
+      "kind": "def",
+      "line": 6,
+      "header": "def Claim.Strip : Prop",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/HalfPlane.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.HalfPlane",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501404,
+      "name": "Claim.Zeta",
+      "kind": "def",
+      "line": 9,
+      "header": "def Claim.Zeta : Prop",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/HalfPlane.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.HalfPlane",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501421,
+      "name": "UpperTheory.FinalTheorems.everyCharacter_of_row",
+      "kind": "theorem",
+      "line": 7,
+      "header": "theorem UpperTheory.FinalTheorems.everyCharacter_of_row (h : UpperTheory.GalStar.Row0b fun h rc => UpperTheory.Zero.LLC.IsRecT h rc) : UpperTheory.EveryCharacter",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 501422,
+      "name": "UpperTheory.FinalTheorems.everyCharacter",
+      "kind": "theorem",
+      "line": 10,
+      "header": "theorem UpperTheory.FinalTheorems.everyCharacter : UpperTheory.EveryCharacter",
+      "path": "src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    },
+    {
+      "id": 525029,
+      "name": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+      "kind": "theorem",
+      "line": 6,
+      "header": "theorem galoisLocalGlobalStrong_recParameter : UpperTheory.GalStar.Row0b recT",
+      "path": "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean",
+      "module": "Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.IntegralStructures.RowSrc",
+      "education_level": "unclassified",
+      "article_action": "retain",
+      "retain_dependency_node": true,
+      "root": false
+    }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 82,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:import_visibility_unchecked",
+      "token": "rhOfAll",
+      "line": 4
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "phase": "statement",
+      "evidence": "bare_name_candidate:direct_import",
+      "token": "RiemannZetaZerosOnLine",
+      "line": 6
+    },
+    {
+      "source": 2,
+      "target": 82,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:import_visibility_unchecked",
+      "token": "rhOfAll",
+      "line": 6
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "phase": "statement",
+      "evidence": "bare_name_candidate:direct_import",
+      "token": "DirichletLNonvanishingRightOfHalf",
+      "line": 8
+    },
+    {
+      "source": 3,
+      "target": 81,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:import_visibility_unchecked",
+      "token": "allChi",
+      "line": 8
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "phase": "statement",
+      "evidence": "bare_name_candidate:direct_import",
+      "token": "DirichletLZerosOnLine",
+      "line": 10
+    },
+    {
+      "source": 4,
+      "target": 84,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:import_visibility_unchecked",
+      "token": "claimAll",
+      "line": 10
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "phase": "statement",
+      "evidence": "bare_name_candidate:direct_import",
+      "token": "PrimitiveDirichletLZerosOnLine",
+      "line": 12
+    },
+    {
+      "source": 5,
+      "target": 83,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:import_visibility_unchecked",
+      "token": "critAll",
+      "line": 12
+    },
+    {
+      "source": 81,
+      "target": 501388,
+      "phase": "statement",
+      "evidence": "qualified_candidate:import_visibility_unchecked",
+      "token": "UpperTheory.EveryCharacter",
+      "line": 7
+    },
+    {
+      "source": 81,
+      "target": 501422,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "UpperTheory.FinalTheorems.everyCharacter",
+      "line": 7
+    },
+    {
+      "source": 82,
+      "target": 81,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:same_module",
+      "token": "allChi",
+      "line": 9
+    },
+    {
+      "source": 82,
+      "target": 121390,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "Formalism.VW.rh_of_every",
+      "line": 9
+    },
+    {
+      "source": 83,
+      "target": 81,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:same_module",
+      "token": "allChi",
+      "line": 13
+    },
+    {
+      "source": 83,
+      "target": 121389,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "Formalism.VW.critLine",
+      "line": 13
+    },
+    {
+      "source": 84,
+      "target": 81,
+      "phase": "proof",
+      "evidence": "bare_name_candidate:same_module",
+      "token": "allChi",
+      "line": 16
+    },
+    {
+      "source": 84,
+      "target": 501374,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "Claim.strip",
+      "line": 16
+    },
+    {
+      "source": 84,
+      "target": 501375,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "Claim.zeta",
+      "line": 16
+    },
+    {
+      "source": 84,
+      "target": 501402,
+      "phase": "statement",
+      "evidence": "qualified_candidate:import_visibility_unchecked",
+      "token": "Claim.HalfPlane",
+      "line": 15
+    },
+    {
+      "source": 84,
+      "target": 501403,
+      "phase": "statement",
+      "evidence": "qualified_candidate:import_visibility_unchecked",
+      "token": "Claim.Strip",
+      "line": 15
+    },
+    {
+      "source": 84,
+      "target": 501404,
+      "phase": "statement",
+      "evidence": "qualified_candidate:import_visibility_unchecked",
+      "token": "Claim.Zeta",
+      "line": 15
+    },
+    {
+      "source": 121389,
+      "target": 121388,
+      "phase": "proof",
+      "evidence": "qualified_candidate:same_module",
+      "token": "Formalism.VW.gammaFactor_ne_zero",
+      "line": 21
+    },
+    {
+      "source": 121389,
+      "target": 501388,
+      "phase": "statement",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "UpperTheory.EveryCharacter",
+      "line": 11
+    },
+    {
+      "source": 121390,
+      "target": 121391,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "Formalism.VW.rh_of_right",
+      "line": 30
+    },
+    {
+      "source": 121390,
+      "target": 501388,
+      "phase": "statement",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "UpperTheory.EveryCharacter",
+      "line": 29
+    },
+    {
+      "source": 501374,
+      "target": 501371,
+      "phase": "proof",
+      "evidence": "namespace_candidate:same_module",
+      "token": "prim_zero",
+      "line": 67
+    },
+    {
+      "source": 501374,
+      "target": 501373,
+      "phase": "proof",
+      "evidence": "namespace_candidate:same_module",
+      "token": "prim_reflect",
+      "line": 68
+    },
+    {
+      "source": 501374,
+      "target": 501402,
+      "phase": "proof",
+      "evidence": "namespace_candidate:direct_import",
+      "token": "HalfPlane",
+      "line": 60
+    },
+    {
+      "source": 501374,
+      "target": 501402,
+      "phase": "statement",
+      "evidence": "namespace_candidate:direct_import",
+      "token": "HalfPlane",
+      "line": 59
+    },
+    {
+      "source": 501374,
+      "target": 501403,
+      "phase": "statement",
+      "evidence": "namespace_candidate:direct_import",
+      "token": "Strip",
+      "line": 59
+    },
+    {
+      "source": 501375,
+      "target": 501374,
+      "phase": "proof",
+      "evidence": "namespace_candidate:same_module",
+      "token": "strip",
+      "line": 82
+    },
+    {
+      "source": 501375,
+      "target": 501402,
+      "phase": "statement",
+      "evidence": "namespace_candidate:direct_import",
+      "token": "HalfPlane",
+      "line": 75
+    },
+    {
+      "source": 501375,
+      "target": 501404,
+      "phase": "statement",
+      "evidence": "namespace_candidate:direct_import",
+      "token": "Zeta",
+      "line": 75
+    },
+    {
+      "source": 501422,
+      "target": 501388,
+      "phase": "statement",
+      "evidence": "qualified_candidate:import_visibility_unchecked",
+      "token": "UpperTheory.EveryCharacter",
+      "line": 10
+    },
+    {
+      "source": 501422,
+      "target": 501421,
+      "phase": "proof",
+      "evidence": "qualified_candidate:same_module",
+      "token": "UpperTheory.FinalTheorems.everyCharacter_of_row",
+      "line": 11
+    },
+    {
+      "source": 501422,
+      "target": 525029,
+      "phase": "proof",
+      "evidence": "qualified_candidate:direct_import",
+      "token": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+      "line": 11
+    }
+  ]
+}

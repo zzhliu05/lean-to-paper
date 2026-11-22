@@ -1,0 +1,18 @@
+{
+  "proof_omission_threshold": "undergraduate_textbook_and_below",
+  "retain_all_dependency_nodes": true,
+  "unclassified_action": "retain",
+  "levels": [
+    "school",
+    "undergraduate_textbook",
+    "graduate",
+    "research",
+    "unclassified"
+  ],
+  "overrides": {},
+  "note": "导出时应用人工标注；当前不自动按名称猜测数学难度，不删除图节点。",
+  "article_selection_threshold": "graduate_or_research",
+  "uncertain_action": "review",
+  "local_model_screening_allowed": false,
+  "local_model_translation_allowed": false
+}
