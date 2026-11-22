@@ -109,7 +109,9 @@ GitHub Pages 静态版由下列命令导出，包含完整目录、双向邻居�
 python tools/export_explorer_site.py --index artifacts/explorer.sqlite --out release-assets/pages-site
 ```
 
-导出程序校验所有源文件哈希、全部声明数与依赖对数，并生成文件 SHA256 清单。生成目录应整体发布至仓库的 `gh-pages` 分支根目录，启用该分支的 GitHub Pages；`.nojekyll` 保留压缩数据文件。站点超过 950 MB 时导出拒绝继续。静态版需要支持 `DecompressionStream` 的现代浏览器。
+导出程序校验所有源文件哈希、全部声明数与依赖对数，并生成文件 SHA256 清单。站点超过 950 MB 时导出拒绝继续。静态版需要支持 `DecompressionStream` 的现代浏览器。
+
+线上发布使用 Actions 的 `Deploy complete dependency browser` 工作流，可在仓库 Actions 页面手动运行。GitHub 端下载已有 Release 的图数据，校验 `source-input-manifest.json` 固定的原始源码包，按文件、名称、类型和行号重建源码偏移，保留全部 Release 声明 ID 与引用记录，再导出、全量校验并部署 Pages。无需从本地上传整个生成站点。
 
 完整收录仅针对当前项目候选图：外部 Mathlib、隐式参数、类型类及宏展开依赖尚未完整导出，不能将页面视为 Lean 内核验证的完整证明依赖。
 

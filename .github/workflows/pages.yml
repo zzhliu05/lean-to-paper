@@ -1,0 +1,43 @@
+name: Deploy complete dependency browser
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Download verified graph snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download graph-2026-11-22-jsonl --repo "$GITHUB_REPOSITORY" --dir release-assets --clobber
+          python tools/restore_graph_release.py --assets release-assets --root . --only candidate-nodes.jsonl --only candidate-edges.jsonl --only candidate-layers.jsonl
+      - name: Download pinned original Lean sources
+        run: python tools/prepare_pages_source.py --out release-assets/input-source
+      - name: Rebuild browser index from release IDs
+        run: python tools/rebuild_pages_index.py --source release-assets/input-source/lean --out artifacts/explorer.sqlite
+      - name: Export and validate complete static site
+        run: |
+          python tools/export_explorer_site.py --index artifacts/explorer.sqlite --out release-assets/pages-site
+          python tools/validate_explorer_site.py release-assets/pages-site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: release-assets/pages-site
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

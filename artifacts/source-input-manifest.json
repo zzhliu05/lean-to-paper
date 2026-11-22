@@ -1,0 +1,77 @@
+{
+  "source_url": "https://alpo.ge/",
+  "archive_sha256": "9631b4f020199e580ba86178cb56c6e9b09f690c2369a80dc4334aa93f49c7fc",
+  "archive_size": 239275554,
+  "parts": [
+    {
+      "name": "lean.tar.gz.part01",
+      "size": 18000000,
+      "sha256": "86974b1c242ca7b6748f3299df4fc64ee0f6e06c776ac964fb64888101a3de77"
+    },
+    {
+      "name": "lean.tar.gz.part02",
+      "size": 18000000,
+      "sha256": "1c2a2477354a9dfa97ff1ce54861e96ed885bd456fffbaaabc2028314a229c42"
+    },
+    {
+      "name": "lean.tar.gz.part03",
+      "size": 18000000,
+      "sha256": "1465a23b1b579a881e24e5ffaf7c4c3727af28ea24741f1ec80e1d67947530a3"
+    },
+    {
+      "name": "lean.tar.gz.part04",
+      "size": 18000000,
+      "sha256": "3929e327eecb4e2c5c7cae30e104e6a4a52fa6b82d28325bcda8e9da1c86893b"
+    },
+    {
+      "name": "lean.tar.gz.part05",
+      "size": 18000000,
+      "sha256": "f25d7e80f7c4ad6d674aa18b323ca760f848857c8755501c149317c38a66c75d"
+    },
+    {
+      "name": "lean.tar.gz.part06",
+      "size": 18000000,
+      "sha256": "a8c651a68327811b37dce3cca8eda5e0b2102fa227c0d395cbb7553e4dd69939"
+    },
+    {
+      "name": "lean.tar.gz.part07",
+      "size": 18000000,
+      "sha256": "65c7e502a9b236a0f68d9e0aa6e089d4c09b9fc7a0960a149384063ccbe5e869"
+    },
+    {
+      "name": "lean.tar.gz.part08",
+      "size": 18000000,
+      "sha256": "71b027ad6e4179c3a50ce72921e3fec0a2dd751ec7472ac2c644ad145a50ec7e"
+    },
+    {
+      "name": "lean.tar.gz.part09",
+      "size": 18000000,
+      "sha256": "47718977ebaa8613f1647e93134479780db9320c5fa911463fd312a6257b796f"
+    },
+    {
+      "name": "lean.tar.gz.part10",
+      "size": 18000000,
+      "sha256": "1d85ece78e0779cec26b0cce29c6462d9f90180e56d78120b152df101715240b"
+    },
+    {
+      "name": "lean.tar.gz.part11",
+      "size": 18000000,
+      "sha256": "cf83a159d1a9540012229c376562587dd966da10cd657cbcef53acfd03232448"
+    },
+    {
+      "name": "lean.tar.gz.part12",
+      "size": 18000000,
+      "sha256": "1aa5415bd2db83b2689afeeb946419303b3c4f599ae790ad74d38465f768b502"
+    },
+    {
+      "name": "lean.tar.gz.part13",
+      "size": 18000000,
+      "sha256": "2de4edbce8ebdbfd0b94bc89bab518c7294209f408ec5b14a7be9e4832d9da81"
+    },
+    {
+      "name": "lean.tar.gz.part14",
+      "size": 5275554,
+      "sha256": "53f8ea43a9b5dcab97b84a52f3ac2848711c844a5420a4c56418093bacb3c6f6"
+    }
+  ]
+}

@@ -9,6 +9,8 @@ import unittest
 import runpy
 
 from lean_to_paper.explorer import Explorer, build_index
+from lean_to_paper.graph import catalog, expand, export
+from lean_to_paper.layers import build_layers
 
 
 class ExplorerTests(unittest.TestCase):
@@ -109,6 +111,25 @@ class ExplorerTests(unittest.TestCase):
         for file,sha in hashes.items():
             self.assertEqual(hashlib.sha256((output/file).read_bytes()).hexdigest(),sha)
         self.assertIn('static-data.js',(output/'index.html').read_text(encoding='utf-8'))
+
+    def test_release_rehydration_preserves_ids_and_example_boundaries(self):
+        source=self.root/'input';(source/'src').mkdir(parents=True)
+        text='def base := 1\ntheorem root : base = 1 := by rfl\nexample : True := by trivial\n'
+        (source/'src'/'Main.lean').write_text(text,encoding='utf-8')
+        graph=self.root/'original.sqlite';artifacts=self.root/'release'
+        catalog(source,graph);expand(graph,[],None,True)
+        export(graph,artifacts,3,None);build_layers(graph,artifacts,True)
+        with closing(sqlite3.connect(graph)) as db:
+            totals=dict(declarations=db.execute('SELECT count(*) FROM declarations').fetchone()[0],
+                        edges=db.execute('SELECT count(*) FROM edges').fetchone()[0])
+        (artifacts/'graph-data-manifest.json').write_text(json.dumps(dict(totals=totals)))
+        helper=runpy.run_path(str(Path(__file__).resolve().parents[1]/'tools'/'rebuild_pages_index.py'))
+        helper['rebuild'](artifacts,source,self.root/'rehydrated.sqlite')
+        restored=Explorer(self.root/'rehydrated.sqlite')
+        self.assertEqual(restored.metadata['declarations'],2)
+        self.assertEqual(restored.query('/api/node/2',{})['name'],'root')
+        self.assertNotIn('example',restored.query('/api/node/2/source',{})['text'])
+        self.assertEqual(restored.query('/api/node/2/neighbors',{})['items'][0]['id'],1)
 
 
 if __name__ == '__main__':
