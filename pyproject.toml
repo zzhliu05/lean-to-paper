@@ -16,4 +16,4 @@ lean-to-paper = "lean_to_paper.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-lean_to_paper = ["viewer.html", "progress.html"]
+lean_to_paper = ["viewer.html", "progress.html", "explorer.html", "static_data.js"]

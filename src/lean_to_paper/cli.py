@@ -5,6 +5,7 @@ from .progress import watch, serve
 from .layers import build_layers
 from .repair import repair_examples
 from . import writing
+from . import explorer
 
 MAIN_ROOTS=['riemannHypothesis','riemannZeta_eq_zero_re','LFunction_ne_zero_of_half_lt_re',
             'LFunction_eq_zero_re','LFunction_eq_zero_re_of_isPrimitive']
@@ -24,8 +25,12 @@ def main():
     p=sub.add_parser('writing-prepare'); p.add_argument('--db',required=True); p.add_argument('--layers',required=True); p.add_argument('--out',required=True)
     p=sub.add_parser('writing-import'); p.add_argument('--out',required=True); p.add_argument('--reviews',required=True)
     p=sub.add_parser('writing-export'); p.add_argument('--out',required=True)
+    p=sub.add_parser('explorer-index'); p.add_argument('--db',required=True); p.add_argument('--layers',required=True); p.add_argument('--out',required=True)
+    p=sub.add_parser('explore'); p.add_argument('--index',required=True); p.add_argument('--port',type=int,default=0)
     args=parser.parse_args()
-    if args.command=='catalog': catalog(args.source,args.db)
+    if args.command=='explorer-index': explorer.build_index(args.db,args.layers,args.out)
+    elif args.command=='explore': explorer.serve(args.index,args.port)
+    elif args.command=='catalog': catalog(args.source,args.db)
     elif args.command=='expand': expand(args.db,args.root or ([] if args.all else MAIN_ROOTS),args.limit,args.all)
     elif args.command=='export': export(args.db,args.out,args.depth,args.policy)
     elif args.command=='watch': watch(args.db,args.interval,args.once)

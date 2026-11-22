@@ -17,7 +17,7 @@ python tools/restore_graph_release.py --assets release-assets --root .
 
 本次 Release 包含完整节点、引用边、分层和模块导入的 JSONL。压缩边表按 8 MiB 分片；恢复工具会按清单顺序读取分片，验证压缩和解压后的 SHA-256，并拒绝覆盖已有数据。文件清单位于 `artifacts/graph-data-manifest.json`，Release 另附 `SHA256SUMS`。下载后可直接在浏览器中打开 `artifacts/main-preview.html` 查看入口预览。完整 SQLite 诊断快照仍保留在本地；如需另外打包，可运行 `python tools/package_graph_release.py --include-database`。
 
-原始 Lean 源文件未包含在仓库和本次 Release 中。原始输入来自 `https://alpo.ge/lean.tar.gz.part01` 至 `part14`；复算图时需自行准备 `../lean-extracted/lean`。本地未完成的自然语言审核材料也不随图快照上传。
+原始 Lean 源文件未包含在主分支和图快照 Release 中；GitHub Pages 的发布分支另含用于源码浏览的压缩分片。原始输入来自 `https://alpo.ge/lean.tar.gz.part01` 至 `part14`；复算图时需自行准备 `../lean-extracted/lean`。本地未完成的自然语言审核材料也不随图快照上传。
 
 ## 已实现
 
@@ -40,12 +40,6 @@ python tools/restore_graph_release.py --assets release-assets --root .
 省略的隐式参数、类型类实例、符号重载、notation、宏、自动生成的结构字段/构造子、局部 open 和复杂 renaming 等可能导致漏边或误边。`unresolved_external_generated_or_syntax` 也包含语法关键字和未识别的局部名称，不能全部解释成外部定理。局部变量识别是保守的，可能过度屏蔽。声明检测按行进行，不等同于完整 Lean parser。
 
 精确版本必须用项目指定 Lean 4.33.1 和固定 Mathlib revision 编译，并从 elaborated environment 中的声明类型与证明项收集常量引用。工具链、依赖安装及全项目编译尚未进行，本项目不据词法图判断黎曼猜想等声明成立。
-
-## 本科难度边界
-
-`policy.json` 控制导出的文章策略标注。当前约定为**本科教材及以下不进入保留正文，只保留研究生及以上**；难度待审的条目单独列出。基础定理仍保留在依赖图中，未知难度不会导致图节点被删除。当前没有自动难度分类器，也没有把百万条声明擅自标成基础或研究级别；禁止使用本地模型筛选。自然语言全文生成和难度审核尚未完成。
-
-可在 `overrides` 中按完整声明名人工指定 `school`、`undergraduate_textbook`、`graduate` 或 `research`。导出会标记 `article_action=omit_proof/retain`，不会删除节点或边。若希望连本科教材证明也省略，将 `proof_omission_threshold` 改为 `undergraduate_textbook_and_below`。导出命令支持 `--policy 路径`。
 
 ## 使用（PowerShell，Python 3.11+，无第三方运行依赖）
 
@@ -96,7 +90,30 @@ $env:PYTHONPATH = "$PWD/src"
 python -m unittest discover -s tests -v
 ```
 
-## 输出
+## 全量声明依赖文档
+
+在线浏览：[完整依赖文档](https://zzhliu05.github.io/lean-to-paper/)。
+
+全量浏览器按 L0–L148 列出所有命题，支持当前层级内搜索、分页，以及切换到包含定义和实例的完整声明目录。点击条目可查看声明头、全部直接前置依赖、全部直接使用者，以及带行号的原始源码。双向关系列表可搜索和分页；小图仅展示当前页前八个邻居，明确标出总数。不会按教材水平删除目录中的节点。
+
+```powershell
+python run.py explorer-index --db artifacts/dependencies.sqlite --layers artifacts/candidate-layers.jsonl --out artifacts/explorer.sqlite
+python run.py explore --index artifacts/explorer.sqlite --port 65516
+```
+
+派生索引只读原图，覆盖全部目录节点并校验边记录总数；同一对端点的引用合并为一条关系，保留声明/正文阶段及记录数。源码按原目录哈希校验，发生变化时拒绝显示错位片段。重建索引需使用新的输出路径。
+
+GitHub Pages 静态版由下列命令导出，包含完整目录、双向邻居和原始源码，浏览器按需读取 gzip 分片，无需 Python 后端。层级内可搜索名称和声明内容，关系详情按邻居名称搜索。静态源码切片按 Unicode 码点计算，保持与 Python 解析器偏移一致。
+
+```powershell
+python tools/export_explorer_site.py --index artifacts/explorer.sqlite --out release-assets/pages-site
+```
+
+导出程序校验所有源文件哈希、全部声明数与依赖对数，并生成文件 SHA256 清单。生成目录应整体发布至仓库的 `gh-pages` 分支根目录，启用该分支的 GitHub Pages；`.nojekyll` 保留压缩数据文件。站点超过 950 MB 时导出拒绝继续。静态版需要支持 `DecompressionStream` 的现代浏览器。
+
+完整收录仅针对当前项目候选图：外部 Mathlib、隐式参数、类型类及宏展开依赖尚未完整导出，不能将页面视为 Lean 内核验证的完整证明依赖。
+
+## 数据文件
 
 | 文件 | 内容 |
 |---|---|
