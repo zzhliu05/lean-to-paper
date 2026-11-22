@@ -17,7 +17,10 @@ def prepare(manifest_path,output):
         target=output/part['name']
         for attempt in range(4):
             try:
-                with urllib.request.urlopen(manifest['source_url']+part['name'],timeout=120) as src,target.open('wb') as dst:
+                request=urllib.request.Request(manifest['source_url']+part['name'],headers={
+                    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/142.0.0.0 Safari/537.36',
+                    'Accept':'*/*','Referer':manifest['source_url']})
+                with urllib.request.urlopen(request,timeout=120) as src,target.open('wb') as dst:
                     shutil.copyfileobj(src,dst,1024**2)
                 if target.stat().st_size!=part['size'] or hashlib.sha256(target.read_bytes()).hexdigest()!=part['sha256']:
                     raise ValueError('Source checksum mismatch: '+part['name'])
